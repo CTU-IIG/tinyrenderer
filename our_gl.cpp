@@ -40,7 +40,7 @@ void triangle(const vec4 clip_verts[3], IShader &shader, TGAImage &image, std::v
             bboxmin[j] = std::max(0.,       std::min(bboxmin[j], pts2[i][j]));
             bboxmax[j] = std::min(clamp[j], std::max(bboxmax[j], pts2[i][j]));
         }
-#pragma omp parallel for
+//#pragma omp parallel for
     for (int x=(int)bboxmin.x; x<=(int)bboxmax.x; x++) {
         for (int y=(int)bboxmin.y; y<=(int)bboxmax.y; y++) {
             vec3 bc_screen  = barycentric(pts2, vec2(x, y));

@@ -164,7 +164,7 @@ void tinyrender_init(int argc, char** argv)
 int main(int argc, char** argv)
 {
     tinyrender_init(argc, argv);
-    thermobench_wrap(tinyrender_run);
+    tinyrender_run();
     display_destroy();
     return 0;
 }

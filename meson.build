@@ -1,3 +1,5 @@
+project('tinyrenderer', ['c', 'cpp'])
+
 cxx = meson.get_compiler('cpp')
 
 dep_scanner = dependency('wayland-scanner', native: true, disabler: true, required: false)
@@ -73,7 +75,6 @@ foreach wayland: [ false, true ]
 	        dependencies : [
                         dependency('OpenMP', required : false),
                 ] + (wayland ? [ dependency('wayland-client', version: '>= 1.17.0', disabler: true, required: false) ] : []),
-	        link_with : libtbwrap,
 	        cpp_args : cxx.get_supported_arguments(
 		        [
 			        '-std=c++14',
@@ -82,7 +83,7 @@ foreach wayland: [ false, true ]
 			        '-Wno-non-virtual-dtor',
 			        '-pedantic',
 			        '-std=c++14',
-			        '-O3',
+			        '-O2',
 			        '-fopenmp',
 		        ] + (wayland ? ['-DWITH_WAYLAND'] : [])),
         )
