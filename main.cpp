@@ -4,7 +4,6 @@
 #include "model.h"
 #include "our_gl.h"
 #include <err.h>
-#include "../tbwrap.h"
 
 constexpr int width  = 800; // output image size
 constexpr int height = 800;
